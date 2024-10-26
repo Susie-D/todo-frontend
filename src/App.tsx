@@ -4,13 +4,16 @@ import axios from 'axios';
 
 function App() {
 const handleClick  = async () => {
-  const response = axios.get('http://localhost:5001');
-  console.log("Response", response);
+  const response = await axios.post("http://localhost:5001/name", {
+    name: "Susie",
+  });
+  console.log("Response", response.data);
 }
   return (
     <ChakraProvider>
-      <Box>Hi</Box>
-      <Button colorScheme='purple' onClick={handleClick}>Button</Button>
+      <Box m={10}>
+      <Button colorScheme='purple' onClick={handleClick}>Test Connection</Button>
+      </Box>
     </ChakraProvider>
   )
 }
